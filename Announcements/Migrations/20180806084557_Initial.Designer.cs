@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AnnouncementsAPI.Migrations
 {
     [DbContext(typeof(AnnouncementsDbContext))]
-    [Migration("20180805202507_Initial")]
+    [Migration("20180806084557_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,13 +26,17 @@ namespace AnnouncementsAPI.Migrations
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(250);
 
-                    b.Property<string>("ImageName");
+                    b.Property<string>("ImageName")
+                        .HasMaxLength(150);
 
-                    b.Property<string>("Phone");
+                    b.Property<string>("Phone")
+                        .HasMaxLength(20);
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .HasMaxLength(100);
 
                     b.Property<bool>("VipAnnouncement");
 

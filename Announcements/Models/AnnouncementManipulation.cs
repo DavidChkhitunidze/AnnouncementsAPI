@@ -18,7 +18,7 @@ namespace AnnouncementsAPI.Models
 
         [Required]
         [MaxLength(20)]
-        [RegularExpression(@"^(1-)?\(\d{3}\)-\d{3}-\d{3}$", ErrorMessage = "Number must match pattern: (000)-000-000")]
+        [RegularExpression(@"^(1-)?\d{3}-\d{3}-\d{3}$", ErrorMessage = "Number must match pattern: 000-000-000")]
         public virtual string Phone { get; set; }
         
         public virtual string ImageName { get; set; }

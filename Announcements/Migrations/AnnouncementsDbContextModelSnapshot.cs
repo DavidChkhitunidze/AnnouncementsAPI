@@ -24,13 +24,17 @@ namespace AnnouncementsAPI.Migrations
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .HasMaxLength(250);
 
-                    b.Property<string>("ImageName");
+                    b.Property<string>("ImageName")
+                        .HasMaxLength(150);
 
-                    b.Property<string>("Phone");
+                    b.Property<string>("Phone")
+                        .HasMaxLength(20);
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .HasMaxLength(100);
 
                     b.Property<bool>("VipAnnouncement");
 
