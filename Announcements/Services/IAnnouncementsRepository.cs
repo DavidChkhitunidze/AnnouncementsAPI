@@ -10,7 +10,6 @@ namespace Announcements.Services
     public interface IAnnouncementsRepository
     {
         PagedList<Announcement> GetAnnouncements(AnnouncementsResourceParameters announcementsResourceParameters);
-        IEnumerable<Announcement> GetAnnouncements(IEnumerable<Guid> ids);
         Announcement GetAnnouncement(Guid id);
         void AddAnnouncement(Announcement announcement);
         void DeleteAnnouncement(Announcement announcement);

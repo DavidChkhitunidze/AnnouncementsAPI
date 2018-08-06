@@ -109,22 +109,6 @@ namespace Announcements.Controllers
             return Ok(announcementForGetting.ShapeData(fields));
         }
 
-        [HttpGet("({ids})", Name = "GetAnnouncementsCollection")]
-        public IActionResult GetAnnouncementsCollection([ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
-        {
-            if (ids == null)
-                return BadRequest();
-
-            var announcementsFromDb = _announcementsRepository.GetAnnouncements(ids);
-
-            if (ids.Count() != announcementsFromDb.Count())
-                return NotFound();
-
-            var announcementsForGetting = Mapper.Map<IEnumerable<AnnouncementForGetting>>(announcementsFromDb);
-
-            return Ok(announcementsForGetting);
-        }
-
         [HttpPost]
         public IActionResult CreateAnnouncement([FromBody] AnnouncementForCreation announcement)
         {

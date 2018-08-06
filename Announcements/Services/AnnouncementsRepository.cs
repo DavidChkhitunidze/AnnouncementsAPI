@@ -47,12 +47,6 @@ namespace Announcements.Services
             return PagedList<Announcement>.Create(collectionFromDb, announcementsResourceParameters.PageNumber, announcementsResourceParameters.PageSize);
         }
 
-        public IEnumerable<Announcement> GetAnnouncements(IEnumerable<Guid> ids) => _context.Announcements
-            .Where(a => ids.Contains(a.ID))
-            .OrderByDescending(a => a.VipAnnouncement)
-            .ThenBy(a => a.Title)
-            .ToList();
-
         public bool Save() => _context.SaveChanges() >= 0;
 
         public void UpdateAnnouncement(Announcement announcement)
